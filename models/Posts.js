@@ -15,11 +15,11 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    starting_date: {
-      type: DataTypes.DATE,
+    content: {
+      type: DataTypes.TEXT, 
       allowNull: false,
     },
-    ending_date: {
+    time_commented: {
       type: DataTypes.DATE,
       allowNull: false,
     },

@@ -5,11 +5,14 @@ const { Post } = require('../models');
 // GET all posts for homepage
 router.get('/', async (req, res) => {
   try {
-    const dbPostData = await Post.findAll({
-      attributes: ['id', 'name', 'starting_date', 'ending_date'],
+    const postData = await Post.findAll({
+      attributes: ['id', 'name', 'time_commented', 'content'],
     });
 
-    const posts = dbPostData.map((post) => post.get({ plain: true }));
+    const posts = postData.map((post) => post.get({ plain: true }));
+
+    console.log('postData:', postData);
+    console.log('posts:', posts);
 
     res.render('homepage', {
       posts,
