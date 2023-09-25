@@ -1,13 +1,23 @@
 const sequelize = require('../config/connection');
+const { Post } = require('../models');
 const seedPosts = require('./postData');
 
-
 const seedAll = async () => {
-  await sequelize.sync({ force: true });
+  try {
+    await sequelize.authenticate(); // Check if the connection is working
 
-  await seedPosts();
+    await sequelize.sync({ force: true });
 
-  process.exit(0);
+    // Seed Post data
+    for (const post of seedPosts) {
+      await Post.create(post);
+    }
+
+    process.exit(0);
+  } catch (error) {
+    console.error('Error:', error);
+    process.exit(1);
+  }
 };
 
 seedAll();
