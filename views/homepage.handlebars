@@ -1,17 +1,17 @@
-<div class="container">
-  <h1>Welcome to the Tech Blog</h1>
-  <hr>
-
-  {{#each posts as |post|}}
-  <div class="card mb-4">
-    <div class="card-header">
-      <h2>{{post.name}}</h2>
-      <p>Time Commented: {{formatDate post.time_commented}}</p>
-    </div>
-    <div class="card-body">
-      <!-- Display other post details as needed -->
-      <p class="card-text">{{post.content}}</p>
-    </div>
-  </div>
-  {{/each}}
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="/public/css/style.css" defer>
+    <title>Homepage</title>
+  </head>
+  <body>
+    <h1>Welcome to the homepage!</h1>
+    {{#each posts}}
+      <div>
+        <h2>{{this.name}}</h2>
+        <p>{{this.content}}</p>
+        <p>Posted at: {{this.time_commented}}</p>
+      </div>
+    {{/each}}
+    <p>This is a test paragraph.</p> 
+</html>

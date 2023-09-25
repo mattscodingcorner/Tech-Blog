@@ -1,6 +1,4 @@
-const { Post } = require('../models');
-
-const postData = [
+[
   {
     name: 'Blog Post 1',
     time_commented: '2023-09-20 09:00:00',
@@ -23,6 +21,3 @@ const postData = [
   },
 ];
 
-const seedPosts = () => Post.bulkCreate(postData);
-
-module.exports = seedPosts;
