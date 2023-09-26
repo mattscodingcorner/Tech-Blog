@@ -1,6 +1,8 @@
 const sequelize = require('../config/connection');
 const { Post } = require('../models');
-const seedPosts = require('./postData');
+const postData = require('./postData');
+
+
 
 const seedAll = async () => {
   try {
@@ -9,7 +11,7 @@ const seedAll = async () => {
     await sequelize.sync({ force: true });
 
     // Seed Post data
-    for (const post of seedPosts) {
+    for (const post of postData) {
       await Post.create(post);
     }
 
